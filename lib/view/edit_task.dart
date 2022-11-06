@@ -12,7 +12,7 @@ class EditTask extends StatefulWidget {
 }
 
 class _EditTaskState extends State<EditTask> {
-  TextEditingController taskNameController = new TextEditingController();
+
   var todoEditController = Get.put(AppController());
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _EditTaskState extends State<EditTask> {
                     children: [
                       Text('Task Name :',style: TextStyle(fontWeight: FontWeight.w600,color: colorLightGreen),),
                       TextField(
-                        controller: taskNameController,
+                        controller: todoEditController.taskEditController,
 
                         autofocus: true,
                         decoration: InputDecoration(hintText: '${todoEditController.tasks[widget.index]}',hintStyle: TextStyle(fontSize: 10)),
@@ -58,7 +58,7 @@ class _EditTaskState extends State<EditTask> {
                       Navigator.of(context).pop();
                     }, child: Text('Cancel',style: TextStyle(color: colorGrey),)),
                     TextButton(onPressed: (){
-                      todoEditController.editTodo(widget.index, taskNameController.text);
+                      todoEditController.editTodo(widget.index, todoEditController.taskEditController.text);
 
                       Navigator.of(context).pop();
                     }, child: Text('Edit'))

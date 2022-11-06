@@ -11,7 +11,7 @@ class AddTask extends StatefulWidget {
 }
 
 class _AddTaskState extends State<AddTask> {
-  TextEditingController taskNameController = new TextEditingController();
+
   DateTime newDate = DateTime.now();
   var formatterDate ;
   String errorText = '';
@@ -29,7 +29,7 @@ class _AddTaskState extends State<AddTask> {
         children: [
           Text('Task Name :',style: TextStyle(fontWeight: FontWeight.w600,color: colorLightGreen),),
           TextField(
-            controller: taskNameController,
+            controller: todoController.taskAddController,
             autofocus: true,
             decoration: InputDecoration(hintText: 'Enter the Name of Task ',hintStyle: TextStyle(fontSize: 10)),
 
@@ -63,10 +63,10 @@ class _AddTaskState extends State<AddTask> {
           ,
           Row(
             children: [
-              errorIcon == null ? Container() :taskNameController.text.isNotEmpty && formatterDate != null ?Container():errorIcon,
+              errorIcon == null ? Container() :todoController.taskAddController.text.isNotEmpty && formatterDate != null ?Container():errorIcon,
               //taskNameController.text.isNotEmpty && formatterDate != null ? Container(): Icon(Icons.error_outline_sharp,size: 14,color: colorRed,),
               SizedBox(width: 10),
-              Text(taskNameController.text.isNotEmpty && formatterDate != null ? '': errorText,style: TextStyle(fontSize: 12,color: colorRed ,),),
+              Text(todoController.taskAddController.text.isNotEmpty && formatterDate != null ? '': errorText,style: TextStyle(fontSize: 12,color: colorRed ,),),
             ],
           ),
 
@@ -85,12 +85,12 @@ class _AddTaskState extends State<AddTask> {
   void addToDo(){
 
 
-    if(taskNameController.text.isNotEmpty && formatterDate != null)
+    if(todoController.taskAddController.text.isNotEmpty && formatterDate != null)
     {
 
-      todoController.addTodo(taskNameController.text);
+      todoController.addTodo(todoController.taskAddController.text);
       Navigator.of(context).pop();
-    print("hi"+taskNameController.text.toString());
+    print("hi"+todoController.taskAddController.text.toString());
 
 
 
