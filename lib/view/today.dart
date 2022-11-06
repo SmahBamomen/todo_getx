@@ -89,6 +89,5 @@ class _TodayTasksState extends State<TodayTasks> {
         ));
 
   }
-  Future openAddDialog() =>
-      showDialog(context: context, builder: (context) => AddTask());
+
 }

@@ -11,6 +11,7 @@ class AppController extends GetxController{
   void addTodo(value){
     tasks.add(value);
     tasksDone.add(false);
+    taskAddController.clear();
 
   }
 
@@ -18,13 +19,15 @@ class AppController extends GetxController{
   void deleteTodo(index){
     tasks.removeAt(index);
     tasksDone.removeAt(index);
-
   }
+
 void taskDone(index,isDone){
   tasksDone[index] = isDone;
 }
   void editTodo(index,value){
-    tasks.removeAt(index);
-    tasks.insert(index,value);
+    tasks[index] = value;
+    taskEditController.clear();
+    // tasks.removeAt(index);
+    // tasks.insert(index,value);
   }
 }
