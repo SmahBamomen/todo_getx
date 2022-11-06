@@ -35,6 +35,12 @@ class _TodayTasksState extends State<TodayTasks> {
                       margin: EdgeInsets.only(bottom: 5),
                       child:ListTile(
                         onTap: () {
+                          if (todoController.tasksDone[index] == false){
+                            todoController.taskDone(index,true);
+                          }
+                          else {
+                            todoController.taskDone(index,false);
+                          }
 
                           setState(() {
 
@@ -54,16 +60,16 @@ class _TodayTasksState extends State<TodayTasks> {
                         },
                         contentPadding: EdgeInsets.symmetric(horizontal: 20),
                         tileColor: Colors.white,
-                        // leading: Icon(
-                        //     snapshot.data!.docs[index].data()["isDone"] ? Icons.check_box : Icons.check_box_outline_blank,
-                        //     color: colorLightGreen
-                        // ),
+                        leading: Icon(
+                            todoController.tasksDone[index] ? Icons.check_box : Icons.check_box_outline_blank,
+                            color: colorLightGreen
+                        ),
                         title: Text(
                           '${todoController.tasks[index]}',
                           style: TextStyle(
                             fontSize: 16,
                             color: colorBlack,
-                            //   decoration: snapshot.data!.docs[index].data()["isDone"] ? TextDecoration.lineThrough : null,
+                           decoration:  todoController.tasksDone[index] ? TextDecoration.lineThrough : null,
                           ),
                         ),
                         trailing: Row(

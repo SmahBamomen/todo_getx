@@ -44,22 +44,7 @@ class _AllTaskState extends State<AllTask> {
             ),
           ),
           TodayTasks(),
-          // Padding(
-          //   padding: EdgeInsets.only(bottom: 10, left: 20),
-          //   child: const Text(
-          //     'Tomorrow ✨',
-          //     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-          //   ),
-          // ),
-          // TomorrowTasks(),
-          // Padding(
-          //   padding: EdgeInsets.only(bottom: 10, left: 20),
-          //   child: const Text(
-          //     'Upcoming 🤩',
-          //     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-          //   ),
-          // ),
-          // UpcomingTasks()
+
         ],
       ),
     );
